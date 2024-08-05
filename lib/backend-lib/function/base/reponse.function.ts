@@ -14,7 +14,6 @@ export async function baseResponse<T>(
 }
 
 export function basePaginatedResponse<T>(
-    res: BaseResponseModel<PaginationResponseHttp<T>>,
     statusCode: StatusCodeTypes,
     paginatedData: PaginationResponseHttp<T>,
     message?: string

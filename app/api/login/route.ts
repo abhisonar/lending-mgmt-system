@@ -10,7 +10,7 @@ import argon from 'argon2';
 
 const prisma = new PrismaClient();
 
-export async function GET(req: BaseRequestModel<LoginRequest>, res: BaseResponseModel<{ token: string }>) {
+export async function POST(req: BaseRequestModel<LoginRequest>, res: BaseResponseModel<{ token: string }>) {
     try {
         const {email, password} = await req.json();
 

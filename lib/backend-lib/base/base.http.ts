@@ -1,18 +1,11 @@
 import {PaginationResponseHttp, ResponseHttp} from './response.http';
-import {NextResponse} from "next/server";
-import {NextApiRequest, NextApiResponse} from "next";
+import {NextRequest, NextResponse} from "next/server";
 
 // Response: Reference of response object related to request
-export interface BaseRequestModel<
-    ReqBody,
-    ReqParams = unknown,
-    ReqQueryParams = unknown,
-    ReqResponse = unknown
-> extends NextApiRequest {
-    body: ReqBody,
+export class BaseRequestModel extends NextRequest {
 }
 
-export type BaseResponseModel<ResData> = NextApiResponse<ResponseHttp<ResData>>;
+export class BaseResponseModel<ResData> extends NextResponse<ResponseHttp<ResData>> {}
 
 export type BasePaginatedResponseModel<ResData> = NextResponse<
     PaginationResponseHttp<ResData>

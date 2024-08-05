@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum USER_ROLE {
+  USER_ROLE_OWNER
+  USER_ROLE_ADMIN
+}
+
+model EnumCollection {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  code        String @unique
+  codeType    String
+  displayText String
+}
+
+type Address {
+  street String
+  city   String
+  state  String
+  zip    String
+}
+
+model AppUserCollection {
+  id           String            @id @default(auto()) @map("_id") @db.ObjectId
+  isSuperAdmin Boolean           @default(false)
+  person       PersonCollection?
+  email        String            @unique
+  password     String
+  role         USER_ROLE
+  createdAt    DateTime          @default(now())
+  updatedAt    String?
+  deletedAt    String?
+  lastLoginAt  String?
+}
+
+model PersonCollection {
+  id         String            @id @default(auto()) @map("_id") @db.ObjectId
+  firstName  String
+  middleName String?
+  lastName   String
+  appUser    AppUserCollection @relation(fields: [appUserId], references: [id])
+  appUserId  String            @unique @db.ObjectId
+  address    Address?
+  profileSrc String?
+}

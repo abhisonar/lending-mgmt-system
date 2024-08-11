@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import {Inter} from 'next/font/google';
 import './globals.scss';
 import {LMSProvider} from '@design-system';
+import {LayoutComponent} from '@core';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,8 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body className='h-full'>
+        <LayoutComponent></LayoutComponent>
         <LMSProvider>{children}</LMSProvider>
       </body>
     </html>

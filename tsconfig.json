@@ -21,6 +21,7 @@
     "paths": {
       "@backend-lib/*": ["./lib/backend-lib/*"],
       "@design-system": ["./lib/frontend-lib/design-system/index.ts"],
+      "@core": ["./lib/frontend-lib/core/index.ts"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

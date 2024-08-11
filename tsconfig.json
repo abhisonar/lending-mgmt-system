@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@backend-lib/*": ["./lib/backend-lib/*"]
+      "@backend-lib/*": ["./lib/backend-lib/*"],
+      "@design-system": ["./lib/frontend-lib/design-system/index.ts"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

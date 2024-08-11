@@ -1,0 +1,9 @@
+@layer base {
+  :root {
+    --font-default: "Nunito Sans";
+  }
+  html,
+  body {
+    @apply h-full;
+  }
+}

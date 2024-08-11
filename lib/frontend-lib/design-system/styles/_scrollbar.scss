@@ -1,0 +1,47 @@
+$scrollbar-size: 4px;
+
+$scrollbar-radius: 20px;
+
+$scrollbar-thumb-color: rgba(#666, 0.5);
+$scrollbar-thumb-hover-color: rgba(#666, 1);
+
+$scrollbar-thumb-color-light: rgba(#bbb, 0.5);
+
+$scrollbar-thumb-hover-color-light: rgba(#bbb, 0.8);
+
+::-webkit-scrollbar {
+  width: $scrollbar-size;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: $scrollbar-size;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $scrollbar-thumb-color;
+  border-radius: $scrollbar-radius;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $scrollbar-thumb-hover-color;
+}
+
+/* mozilla firefox scrollbar */
+
+html,
+body,
+div,
+section,
+.overflow-auto {
+  scrollbar-width: thin;
+}
+
+// [Light color scrollbar]
+.scrollbar-light ::-webkit-scrollbar-thumb {
+  background: $scrollbar-thumb-color-light;
+}
+
+.scrollbar-light ::-webkit-scrollbar-thumb:hover {
+  background: $scrollbar-thumb-hover-color-light;
+}
+

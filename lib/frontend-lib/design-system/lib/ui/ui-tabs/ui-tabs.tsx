@@ -32,8 +32,12 @@ export const UiTabs: React.FC<IUiTabsProps> = ({
   const linkTemplate = (tabConfig: ITabConfig) => {
     return (
       <Tab
-        key={tabConfig.key}
-        title={<Link href={tabConfig.link}>{tabConfig.label}</Link>}
+        key={tabConfig.link}
+        title={
+          <Link href={tabConfig.link} className={'p-2'}>
+            {tabConfig.label}
+          </Link>
+        }
       ></Tab>
     );
   };
@@ -42,7 +46,7 @@ export const UiTabs: React.FC<IUiTabsProps> = ({
     return (
       <Tab
         key={tabConfig.key}
-        title={<Link href={tabConfig.link}>{tabConfig.label}</Link>}
+        title={<span className={'p-2'}>{tabConfig.label}</span>}
       ></Tab>
     );
   };
@@ -54,6 +58,9 @@ export const UiTabs: React.FC<IUiTabsProps> = ({
       <Tabs
         selectedKey={selectedKey}
         onSelectionChange={(key) => handleSelectionChange(key as string)}
+        classNames={{
+          tab: 'max-w-fit p-0',
+        }}
       >
         {tabs.map((tab) => templateFn(tab))}
       </Tabs>
